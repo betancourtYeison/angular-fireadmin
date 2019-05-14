@@ -5,4 +5,12 @@ import { Component } from "@angular/core";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
-export class AppComponent {}
+export class AppComponent {
+  breakpoint: number;
+  ngOnInit() {
+    this.breakpoint = window.innerWidth <= 750 ? 1 : 3;
+  }
+  onResize(event) {
+    this.breakpoint = event.target.innerWidth <= 750 ? 1 : 3;
+  }
+}
